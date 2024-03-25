@@ -1,0 +1,63 @@
+﻿@model IEnumerable<APP.Models.Auth>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <link  rel="stylesheet" href="~/lib/tailwindcss/tailwind.css"/> 
+    <link rel="stylesheet" href="~/css(auth)/Index.css" />
+</head>
+<div class="top-h1">Admin List</div>
+<table class="table ml-4">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if(Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            <div class="flex gap-3">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="actions bg-yellow-500  px-2 py-2 rounded-md ">
+                                    <img src="~/Images/pencil.svg" asp-append-version="true" />
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="actions bg-red-500  px-2 py-2 rounded-md">
+                                    <img src="~/Images/trash.svg" asp-append-version="true" />
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <h1>No admin account found  | Add Some</h1>
+            }
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" class="add">
+        <img src="~/Images/plus-lg.svg" asp-append-version="true"/>
+    </a>
+    <br />
+    <a asp-action="Index" asp-controller="Home">Go to Student List</a>
+</p>

@@ -1,0 +1,63 @@
+﻿@font-face {
+    font-family: 'detail';
+    src: url(~/Fonts/Lexend.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    width: 100%;
+    background-color: #E8E9FC;
+    position: relative;
+    font-family: 'detail';
+}
+
+.main-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15vw;
+}
+
+.left img {
+    height: 28vw;
+}
+
+.details {
+    font-size: 1.8vw;
+    display: inline;
+    color: #241FFB;
+    font-weight: 800;
+}
+
+.value {
+    font-size: 1.4vw;
+    display: inline;
+    color: #2C2C2C;
+    font-weight: 600;
+}
+/* .dabba{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} */
+.student-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+}

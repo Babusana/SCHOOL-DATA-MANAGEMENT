@@ -1,0 +1,112 @@
+﻿@using static APP.Models.Student
+@model APP.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@* <h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FatherName" class="control-label"></label>
+                <input asp-for="FatherName" class="form-control" />
+                <span asp-validation-for="FatherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                @* <input asp-for="Gender" class="form-control" /> 
+                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Sex>()">
+                    <option value="">Select Gender</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                @* <input asp-for="Class" class="form-control" /> 
+                <select asp-for="Class" class="form-control" asp-items="Html.GetEnumSelectList<Grade>()">
+                    <option value="">Select Class</option>
+                </select>
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+ *@
+<head>
+    <link rel="stylesheet" href="~/css/Create.css">
+</head>
+<body>
+    <main>
+        <div class="create-main">
+            <div class="create-form">
+                <h1>Edit Details</h1>
+                <hr />
+                <form class="form" asp-action="Edit">
+                    <div class="field-name fields">
+                        <label for="name" asp-for="Name">Name</label>
+                        <input asp-for="Name" id="name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="field-father fields">
+                        <label asp-for="FatherName">Father</label>
+                        <input asp-for="FatherName" id="father">
+                        <span asp-validation-for="FatherName" class="text-danger"></span>
+                    </div>
+                    <div class="field-gender fields">
+                        <label asp-for="Gender">Gender</label>
+                        <select name="gender" id="gender" asp-for="Gender" asp-items="Html.GetEnumSelectList<Sex>()">
+                            <option value="">Select Gender</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="field-age fields">
+                        <label asp-for="Age">Age</label>
+                        <input asp-for="Age" id="age">
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="field-class fields">
+                        <label asp-for="Class">Class</label>
+                        <!-- <input type="text" id="father"> -->
+                        <select name="class" id="class" asp-for="Class" asp-items="Html.GetEnumSelectList<Grade>()">
+                            <option value="">Select Class</option>
+                        </select>
+                        <span asp-validation-for="Class" class="text-danger"></span>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Update" id="submit">
+                    </div>
+                </form>
+                <div class="back">
+                    <a asp-action="Index" id="back">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,199 @@
+﻿@model IEnumerable<APP.Models.Student>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Main";
+    
+}
+@* 
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+<head>
+    <link rel="stylesheet" href="~/css/index.css">
+</head>
+<body>
+    <main>
+        <div class="main">
+            
+               
+            
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        @{
+                            if (ViewBag.Check != null)
+                            {
+                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.FatherName)</th>
+                                <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                                <th> @Html.DisplayNameFor(model => model.Age)</th>
+                                <th>@Html.DisplayNameFor(model => model.Class)</th>
+                                <th></th>
+                            }
+                        
+                       else{
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.FatherName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                        <th> @Html.DisplayNameFor(model => model.Age)</th>
+                        <th>@Html.DisplayNameFor(model => model.Class)</th>
+                       }
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (ViewBag.Check != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FatherName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Class)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="options edit">
+                                        <img  src="~/Images/pencil.svg"/>
+                                    </a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="options details">
+                                        <img src="~/Images/info.svg"/>
+                                    </a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="options delete">
+                                        <img  src="~/Images/trash.svg"/>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FatherName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Class)
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <partial name="_footer"/>
+    </footer>
+@*     <footer>
+        <div class="f-container">
+            @{
+                if (ViewBag.Check != null)
+                {
+                    <a asp-action="Create" id="Create-admin">
+                        <img src="~/Images/add.svg" />
+                    </a>
+                }
+            }
+        </div>
+            @* <form>
+                <div class="search-box">
+                    <img src="~/Images/search_outline.svg" alt="" id="icon-search">
+                    <input type="text">
+                </div>
+            </form> 
+            @{
+                if (TempData["logout"] != null)
+                {
+                    <p class="msg">@TempData["Logout"]</p>
+                }
+            }
+                    
+        <div class="f-admin">
+            @{
+                if(ViewBag.Check == null)
+                {
+                    <a asp-action="Login" class="f-admin-sub">
+                        <img src="~/Images/not-admin.svg" alt="">
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="Logout" class="f-admin-sub okay">
+                        <img src="~/Images/Admin-checked.svg" alt="">
+                    </a>
+                }
+            }
+        </div>
+    </footer> *@
+</body>

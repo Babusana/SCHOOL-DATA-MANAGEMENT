@@ -1,0 +1,56 @@
+﻿
+    <div class="f-container">
+        @{
+            if (ViewBag.Check != null)
+            {
+                <a asp-action="Create" id="Create">
+                    <img src="~/Images/add.svg" />
+                </a>
+            }
+        }
+    </div>
+    @* <form>
+    <div class="search-box">
+    <img src="~/Images/search_outline.svg" alt="" id="icon-search">
+    <input type="text">
+    </div>
+    </form> *@
+    @{
+        if (TempData["logout"] != null)
+        {
+            <p class="msg">@TempData["Logout"]</p>
+        }
+    }
+
+    <div class="f-admin">
+        @{
+            if (ViewBag.Check == null)
+            {
+                <a asp-action="Login" class="f-admin-sub">
+                    <img src="~/Images/not-admin.svg" alt="">
+                </a>
+            }
+            else
+            {
+                <a asp-action="Logout" class="f-admin-sub okay">
+                    <img src="~/Images/Admin-checked.svg" alt="">
+                </a>
+            }
+        }
+    </div>
+    <div class="panel-admin">
+    @{
+        if (ViewBag.Check == null)
+        {
+            <a asp-action="Index" asp-controller="Auths" class="f-admin-sub">
+                <img src="~/Images/panel.svg" alt="">
+            </a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-controller="Auths" class="f-admin-sub">
+                <img src="~/Images/panel.svg" alt="">
+            </a>
+        }
+    }
+    </div>

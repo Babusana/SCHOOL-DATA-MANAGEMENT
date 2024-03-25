@@ -1,0 +1,54 @@
+﻿@model APP.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <link rel="stylesheet" href="~/css/details.css" />
+</head>
+<body>
+    <div class="main-container">
+        <div class="main">
+            <div class="left">
+                <img src="~/Images/sample.jpg"
+                     class="img-thumbnail"
+                     alt="..." 
+                     asp-append-version="true"
+                     />
+            </div>
+            <div class="right">
+                <dl class="student-detail">
+                    <div class="dabba">
+                        <dt class="details">@Html.DisplayNameFor(model => model.Name) :-    </dt>
+                        <dd class="value">@Html.DisplayFor(model => model.Name)</dd>
+                    </div>
+                    <div class="dabba">
+                        <dt class="details">@Html.DisplayNameFor(model => model.FatherName) :- </dt>
+                        <dd class="value">@Html.DisplayFor(model => model.FatherName)</dd>
+                    </div>
+                    <div class="dabba">
+                        <dt class="details">@Html.DisplayNameFor(model => model.Gender) :- </dt>
+                        <dd class="value">@Html.DisplayFor(model => model.Gender)</dd>
+                    </div>
+                    <div class="dabba">
+                        <dt class="details">@Html.DisplayNameFor(model => model.Age) :- </dt>
+                        <dd class="value">@Html.DisplayFor(model => model.Age)</dd>
+                    </div>
+                    <div class="dabba">
+                        <dt class="details">@Html.DisplayNameFor(model => model.Class) :- </dt>
+                        <dd class="value">@Html.DisplayFor(model => model.Class)</dd>
+                    </div>
+                </dl>
+                @* <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> | *@
+                <div class="detail-actions" >
+                    <a asp-action="Index" class="options back">
+                        <img src="~/Images/back.svg" asp-append-version="true" />
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="options edit">
+                        <img src="~/Images/pencil.svg" asp-append-version="true"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

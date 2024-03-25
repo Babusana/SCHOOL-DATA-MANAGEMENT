@@ -1,0 +1,39 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+html,body{
+    height:100%;
+    width:100%;
+}
+
+.top-h1{
+    margin-top:3vw;
+    font-size:3vw;
+    font-weight:500;
+}
+.actions img, .add img{
+    height:1.5vw;
+}
+.add {
+    background-color: #0d6efd;
+    color:white;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    align-self:center;
+    border-radius:7px;
+    display:inline-block;
+}
+.add a{
+    text-decoration:none;
+}
+.add:hover{
+    color:white;
+    background-color:#0B5ED7;
+    border-radius:10px;
+}
